@@ -1,11 +1,147 @@
-/* --------------------------------------------Color ROOT---------------------------------------- */
+/* Font ------------------------------- */
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700;900&display=swap");
 
+/* --------------------------------------------Color ROOT---------------------------------------- */
+:root {
+  --light: #fff;
+  --gray: #555;
+  --dark: #212121;
+  --light-red: #f04233;
+}
 
 /* --------------------------------------------Global---------------------------------- */
 * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  width: 100vw;
+  height: 100vh;
+  font-family: "Roboto", sans-serif;
+}
+
+a {
+  text-decoration: none;
 }
 
 /* -------------------------------------------------App --------------------------------- */
+.container {
+  margin: auto;
+  max-width: 95%;
+  /* background: red; */
+  color: var(--dark);
+}
+
+/* Header -------------------------------------- */
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-top: 10px;
+}
+
+header .menu {
+  display: flex;
+  list-style: none;
+  gap: 2rem;
+  font-size: 1.1rem;
+}
+
+header .menu a {
+  color: var(--dark);
+}
+
+header .menu a:hover {
+  color: var(--light-red);
+  border-bottom: 1px solid var(--light-red);
+}
+
+/* Hamburger Menu */
+.hamburger-menu {
+  width: 30px;
+  height: 30px;
+  position: relative;
+  display: none;
+}
+
+.menu-btn {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  width: 30px;
+  height: 30px;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 2;
+}
+
+.menu-btn .line {
+  display: block;
+  height: 4px;
+  width: 40px;
+  border-radius: 10px;
+  background: var(--dark);
+}
+
+.menu-btn .line1 {
+  transform-origin: 0% 0%;
+  transition: transform 0.3s ease-in-out;
+}
+
+.menu-btn .line2 {
+  transition: transform 0.1s ease-in-out;
+}
+
+.menu-btn .line3 {
+  transform-origin: 0% 100%;
+  transition: transform 0.3s ease-in-out;
+}
+
+.hamburger-menu input[type="checkbox"]{ 
+  width: 30px;
+  height: 30px;
+  z-index: 3;
+  position: absolute;
+  top: 0;
+  left: 0;
+  opacity: 0;
+  cursor: pointer;
+}
+
+.hamburger-menu input[type="checkbox"]:checked ~ .menu-btn .line1 {
+  transform: rotate(45deg);
+}
+
+.hamburger-menu input[type="checkbox"]:checked ~ .menu-btn .line2 {
+ opacity: 0;
+}
+
+.hamburger-menu input[type="checkbox"]:checked ~ .menu-btn .line3 {
+  transform: rotate(-45deg);
+}
+
+/* --------------------------------------Media query---------------------------------------- */
+@media (max-width: 700px) {
+  header .menu {
+    width: 300px;
+    height: 100vh;
+    background: var(--light);
+    position: fixed;
+    top: 0;
+    right: 100%;
+    transition: all 0.3s ease-in-out;
+    display: flex;
+    flex-direction: column;
+    padding-top: 60px;
+    padding-left: 20px;
+    border-left: 1px var(--gray) solid;
+  }
+
+  .hamburger-menu {
+    display: block;
+  }
+}
