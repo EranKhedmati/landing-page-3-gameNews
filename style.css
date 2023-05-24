@@ -33,6 +33,9 @@ a {
   color: var(--matte-yellow);
 }
 
+.lightGray-txt{
+  color: var(--light-gray);
+}
 /* -------------------------------------------------App --------------------------------- */
 .container {
   margin: auto;
@@ -230,6 +233,37 @@ section.hero .readmore >a:hover {
   background: var(--dark);
 }
 
+/* Cards ------------------------------------------- */
+section.card-list {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+section.card-list .card {
+  display: flex;
+  gap: 1rem;
+  height: 150px;
+  max-width: 350px;
+  margin-bottom: 10px;
+}
+
+section.card-list .card >img {
+  height: 100%;
+}
+
+section.card-list .card h1 {
+  font-size: 3rem;
+}
+
+section.card-list .card h1,
+section.card-list .card h3 {
+  padding-bottom: 0.5rem;
+}
+
 /* --------------------------------------Media query---------------------------------------- */
 @media (max-width: 1100px) {
   /* Banner Handling */
@@ -265,6 +299,7 @@ section.hero .readmore >a:hover {
 }
 
 @media (max-width: 750px) {
+  /* Hero grid handling */
   section.hero { 
     grid-template-rows: 300px 1fr auto auto;
   }
@@ -283,9 +318,15 @@ section.hero .readmore >a:hover {
     grid-column: 1/3;
     grid-row: 4/5;
   }
+
+  /* Card */
+  section.card-list {
+    margin-top: 1rem;
+  }
 }
 
 @media (max-width: 700px) {
+  /* Menu */
   header .menu {
     width: 300px;
     height: 100vh;
